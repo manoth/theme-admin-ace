@@ -1,0 +1,42 @@
+<div *ngIf="loading" class="widget-box-overlay">
+    <i class="ace-icon loading-xx loading-icon fa fa-spinner fa-pulse fa-3x fa-fw white" style="top: 50%;"></i>
+</div>
+<div id="forgot-box" class="forgot-box visible widget-box no-border">
+    <div class="widget-body">
+        <div class="widget-main">
+            <h4 class="header red lighter bigger">
+                <i class="ace-icon fa fa-key"></i>
+                ความช่วยเหลือเกี่ยวกับรหัสผ่าน
+            </h4>
+            <div class="space-6"></div>
+            <div class="">
+                <p>กรุณากรอกเลขประจำตัวประชาชนของคุณ</p>
+                <form enctype="multipart/form-data" class="form-horizontal">
+                    <fieldset>
+                        <label class="block clearfix">
+                            <span class="block input-icon input-icon-right">
+                                <input type="text" name="cid" id="cid" class="form-control"
+                                    placeholder="เลขประจำตัวประชาชน" autofocus />
+                                <i class="ace-icon fa fa-id-card"></i>
+                            </span>
+                        </label>
+
+                        <div class="clearfix">
+                            <button type="submit" class="width-35 pull-right btn btn-sm btn-danger">
+                                <i class="ace-icon fa fa-lightbulb-o"></i>
+                                <span class="bigger-110">ส่งคำร้องขอ!</span>
+                            </button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div><!-- /.widget-main -->
+
+        <div class="toolbar center">
+            <a routerLink="/signin" class="back-to-login-link">
+                กลับหน้าเข้าสู่ระบบ
+                <i class="ace-icon fa fa-arrow-right"></i>
+            </a>
+        </div>
+    </div><!-- /.widget-body -->
+</div><!-- /.forgot-box -->

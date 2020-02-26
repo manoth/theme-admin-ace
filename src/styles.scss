@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+// @import url(./assets/select2/dist/css/select2.min.css);
+// @import url(./assets/css/fonts.googleapis.com.css);
+// @import url(./assets/css/ace-rtl.min.css);
+@import url(../node_modules/font-awesome/css/font-awesome.min.css);
+@import url(../node_modules/sweetalert2/dist/sweetalert2.min.css);
+
+.preLoader {
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: url('./assets/images/Spinner.gif') 50% 50% no-repeat;
+}

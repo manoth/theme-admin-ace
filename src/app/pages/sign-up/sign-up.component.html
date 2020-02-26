@@ -1,0 +1,211 @@
+<div id="signup-box" class="signup-box visible widget-box no-border">
+    <div class="widget-body">
+        <div class="widget-main">
+            <h4 class="header green lighter bigger">
+                <i class="ace-icon fa fa-pencil-square-o blue"></i>
+                ลงทะเบียนเพื่อเข้าใช้งานระบบ
+            </h4>
+            <div class="row">
+                <div class="space-6"></div>
+                <p class="col-sm-6 col-md-6"> ตั้งค่าบัญชีของคุณ: </p>
+                <p class="col-sm-6 col-md-6 hidden-xs"> ป้อนรายละเอียดข้อมูลส่วนตัวของคุณ: </p>
+            </div>
+            <form class="form-horizontal">
+                <div class="row">
+                    <fieldset class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="username" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                ชื่อบัญชีผู้ใช้:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.username" name="username" id="username" type="text"
+                                        class="form-control" placeholder="Username" autofocus />
+                                    <i class="ace-icon fa fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                รหัสผ่าน:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="password" name="password" id="password" type="password"
+                                        class="form-control" placeholder="Password" />
+                                    <i class="ace-icon fa fa-lock"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="repassword" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                ยืนยันรหัสผ่าน:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="repassword" name="repassword" id="repassword" type="password"
+                                        class="form-control" placeholder="Repeat password" />
+                                    <i class="ace-icon fa fa-retweet"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="space-6"></div>
+                            <p class="center"> เลือกรูปโปรไฟล์ </p>
+                            <div class="block clearfix center">
+                                <input #file type="file" name="file" accept='image/*'
+                                    (change)="fileProgress(file.files)" style="display: none;" />
+                                <a href="javascript:void(0)" (click)="file.click()" class="image-edit">
+                                    <img class="profile-user-img img-responsive img-circle" [src]="imgURL"
+                                        alt="คลิกเพื่อเลือกรูปภาพโปรไฟล์" style="width: 120px; height: 120px;">
+                                    <p>คลิกเพื่อเลือกรูปภาพ</p>
+                                </a>
+                            </div>
+                            <div class="space-10"></div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="col-sm-6 col-md-6">
+                        <div class="form-group">
+                            <label for="cid" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                รหัสประชาชน:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.cid" name="cid" id="cid" type="text" class="form-control"
+                                        placeholder="เลขประจำตัวประชาชน" maxLength="13" />
+                                    <i class="ace-icon fa fa-id-card"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="hospcode" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                สถานที่ปฏิบัติงาน:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <select [(ngModel)]="signUp.hospcode" name="hospcode" id="hospcode"
+                                    class="form-control select2" style="width: 100%;">
+                                    <option value="" disabled="disabled">== กรุณาเลือกสถานบริการ ==</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pname" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                คำนำหน้าชื่อ:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <select [(ngModel)]="signUp.pname" name="pname" id="pname" class="form-control select2"
+                                    style="width: 100%;">
+                                    <option value="" disabled="disabled">== กรุณาเลือกคำนำหน้าชื่อ ==</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="fname" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                ชื่อจริง:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.fname" name="fname" id="fname" type="text"
+                                        class="form-control" placeholder="ชื่อจริง" />
+                                    <i class="ace-icon fa fa-address-book"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                นามสกุล:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.lname" name="lname" id="lname" type="text"
+                                        class="form-control" placeholder="นามสกุล" />
+                                    <i class="ace-icon fa fa-address-book"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="birth" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                วันเกิด:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.birth" name="birth" id="birth" type="date"
+                                        class="form-control" placeholder="วัน เดือน ปีเกิด" />
+                                    <i class="ace-icon fa fa-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex" class="col-xs-3 col-sm-3 col-md-3 control-label no-padding-right"
+                                style="padding-top: 0px;">
+                                <div class="space-6"></div>
+                                เพศ:
+                            </label>
+                            <div class="col-xs-9 col-sm-9 col-md-9 block clearfix">
+                                <label class="col-xs-6 col-sm-6">
+                                    <div class="space-6"></div>
+                                    <input [(ngModel)]="signUp.sex" (change)="useImg('1')" type="radio" name="sex"
+                                        value="1" class="minimal-red" checked>
+                                    ชาย
+                                </label>
+                                <label class="ccol-xs-6 ol-sm-6">
+                                    <div class="space-6"></div>
+                                    <input [(ngModel)]="signUp.sex" (change)="useImg('2')" type="radio" name="sex"
+                                        value="2" class="minimal-red">
+                                    หญิง
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                Email:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.email" name="email" id="email" type="email"
+                                        class="form-control" placeholder="Email" />
+                                    <i class="ace-icon fa fa-envelope"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel" class="col-md-3 control-label no-padding-right hidden-xs hidden-sm">
+                                เบอร์มือถือ:
+                            </label>
+                            <div class="col-md-9 block clearfix">
+                                <span class="block input-icon input-icon-right">
+                                    <input [(ngModel)]="signUp.tel" name="tel" id="tel" type="tel" class="form-control"
+                                        placeholder="เบอร์โทรศัพท์มือถือ" />
+                                    <i class="ace-icon fa fa-phone-square"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="row">
+                    <div class="space-12"></div>
+                    <fieldset class="col-xs-6 col-sm-6 col-md-6">
+                        <button type="reset" class="pull-right btn btn-sm btn-default">
+                            <i class="ace-icon fa fa-trash-o"></i>
+                            <span class="bigger-110">
+                                ยกเลิก
+                            </span>
+                        </button>
+                    </fieldset>
+                    <fieldset class="col-xs-6 col-sm-6 col-md-6">
+                        <button type="submit" class="pull-left btn btn-sm btn-primary">
+                            <i class="ace-icon fa fa-floppy-o"></i>
+                            <span class="bigger-110">บันทึก</span>
+                        </button>
+                    </fieldset>
+                </div>
+            </form>
+        </div>
+        <div class="toolbar center">
+            <a routerLink="/signin" class="back-to-login-link">
+                <i class="ace-icon fa fa-arrow-left"></i>
+                กลับหน้าเข้าสู่ระบบ
+            </a>
+        </div>
+    </div><!-- /.widget-body -->
+</div><!-- /.signup-box -->
